@@ -26,11 +26,6 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file("secret.properties").newDataInputStream())
-
-        buildConfigField "String", "AD_UNIT_ID", "\"${properties.getProperty("AD_UNIT_ID")}\""
     }
 
     buildTypes {
