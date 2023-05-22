@@ -1,6 +1,5 @@
 package com.nnapps.countr.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,10 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -110,27 +108,20 @@ fun Buttons(viewModel: CountrViewModel = hiltViewModel()) {
     ) {
         HitOrMissButton(
             text = stringResource(R.string.txt_reset),
-            modifier = Modifier.background(
-                color = Color(0xFF000DFF), shape = CircleShape
-            )
+                color = 0xFF000DFF
         ) { viewModel.onResetButtonClicked() }
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Row {
             HitOrMissButton(
                 text = stringResource(R.string.txt_hit),
+                color = 0xFF00FF2B,
                 modifier = Modifier
-                    .background(
-                        color = Color(0xFF00FF2B), shape = CircleShape
-                    )
                     .weight(1f)
             ) { viewModel.onHitButtonClicked() }
-            Spacer(modifier = Modifier.width(6.dp))
             HitOrMissButton(
                 text = stringResource(R.string.txt_miss),
+                color = 0xFFFF0000,
                 modifier = Modifier
-                    .background(
-                        color = Color(0xFFFF0000), shape = CircleShape
-                    )
                     .weight(1f)
             ) { viewModel.onMissButtonClicked() }
         }
