@@ -14,10 +14,11 @@ var mInterstitialAd: InterstitialAd? = null
 fun loadInterstitial(context: Context) {
     InterstitialAd.load(
         context,
-        "ca-app-pub-4084050760135504/1912601791",
+        "ca-app-pub-4084050760135504/3572487573",
         AdRequest.Builder().build(),
         object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
+                println("adError ${adError.message}")
                 mInterstitialAd = null
             }
 
@@ -33,6 +34,7 @@ fun showInterstitial(context: Context, onAdDismissed: () -> Unit) {
     if (mInterstitialAd != null && activity != null) {
         mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdFailedToShowFullScreenContent(e: AdError) {
+                println("adError ${e.message}")
                 mInterstitialAd = null
             }
 
