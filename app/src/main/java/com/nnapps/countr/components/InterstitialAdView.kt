@@ -18,7 +18,6 @@ fun loadInterstitial(context: Context) {
         AdRequest.Builder().build(),
         object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
-                println("adError ${adError.message}")
                 mInterstitialAd = null
             }
 
@@ -34,7 +33,6 @@ fun showInterstitial(context: Context, onAdDismissed: () -> Unit) {
     if (mInterstitialAd != null && activity != null) {
         mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdFailedToShowFullScreenContent(e: AdError) {
-                println("adError ${e.message}")
                 mInterstitialAd = null
             }
 
