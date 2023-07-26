@@ -114,7 +114,7 @@ fun Buttons(viewModel: CountrViewModel = hiltViewModel()) {
         Row {
             HitOrMissButton(
                 text = stringResource(R.string.txt_hit),
-                color = 0xFF00FF2B,
+                color = 0xFF006110,
                 modifier = Modifier
                     .weight(1f)
             ) { viewModel.onHitButtonClicked() }

@@ -12,20 +12,9 @@ class CountrApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initTimber()
         initAdMob()
-//        initFirebase()
     }
 
-//    private fun initFirebase() {
-//        analytics = Firebase.analytics
-//    }
-
-    private fun initTimber() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
-    }
 
     private fun initAdMob() {
         MobileAds.initialize(this)

@@ -24,7 +24,11 @@ fun HitOrMissButton(modifier: Modifier = Modifier, color: Long, text: String, on
             .fillMaxWidth()
             .padding(PaddingValues(horizontal = 24.dp, vertical = 16.dp))
             .clip(RoundedCornerShape(15.dp)),
-        colors = ButtonDefaults.buttonColors( Color(color).copy(0.6F)),
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = Color(color), // Background color with reduced opacity
+            disabledBackgroundColor = Color.Gray, // Background color when the button is disabled
+            disabledContentColor = Color.DarkGray // Text color when the button is disabled
+        ),
     ) {
         Text(
             text = text,
