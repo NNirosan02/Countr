@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.compose.CountrTheme
 import com.nnapps.countr.components.BannerAdView
+import com.nnapps.countr.components.loadInterstitial
 import com.nnapps.countr.screens.CounterScreen
 import com.nnapps.countr.screens.CountrViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadInterstitial(this)
         setContent {
             CountrTheme {
                 // A surface container using the 'background' color from the theme

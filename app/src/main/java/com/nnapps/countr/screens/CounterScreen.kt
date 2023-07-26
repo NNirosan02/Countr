@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nnapps.countr.R
 import com.nnapps.countr.components.HitOrMissButton
+import com.nnapps.countr.components.showInterstitial
 
 @Composable
 fun CounterScreen(viewModel: CountrViewModel) {
@@ -99,6 +101,7 @@ fun CounterScreen(viewModel: CountrViewModel) {
 
 @Composable
 fun Buttons(viewModel: CountrViewModel = hiltViewModel()) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -109,7 +112,11 @@ fun Buttons(viewModel: CountrViewModel = hiltViewModel()) {
         HitOrMissButton(
             text = stringResource(R.string.txt_reset),
                 color = 0xFF000DFF
-        ) { viewModel.onResetButtonClicked() }
+        ) {
+            showInterstitial(context = context) {
+                viewModel.onResetButtonClicked()
+            }
+        }
         Spacer(modifier = Modifier.height(8.dp))
         Row {
             HitOrMissButton(
